@@ -1,9 +1,12 @@
 // Configure Amplify with Cognito
 aws_amplify.Amplify.configure({
     Auth: {
-        region: 'us-east-1', // e.g., 'us-east-1'
-        userPoolId: 'us-east-1_gSbkx5X2b', // e.g., 'us-east-1_123456789'
-        userPoolWebClientId: '6qctd02asn0l4eg7ve84ldslv9' // e.g., '12345abcdefg'
+        // ex: 'us-east-1'
+        region: 'us-east-1', 
+        // ex: 'us-east-1_123456789'
+        userPoolId: 'us-east-1_gSbkx5X2b',
+        // ex: '12345abcdefg'
+        userPoolWebClientId: '6qctd02asn0l4eg7ve84ldslv9'
     }
 });
 
