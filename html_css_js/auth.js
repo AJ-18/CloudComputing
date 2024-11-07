@@ -27,4 +27,7 @@ async function login() {
         message.style.color = 'red';
         message.textContent = 'Login failed: ' + error.message;
     }
+        // Your login logic here
+        console.log("Login function called");
+   
 }
