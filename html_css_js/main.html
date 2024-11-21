@@ -75,5 +75,39 @@
             });
         }
     </script>
+    <div id="most-common-word">
+        <h3>Most Common Word</h3>
+        <p id="common-word-display">Loading...</p>
+    </div>
+    <script>
+        async function fetchMostCommonWord() {
+            try {
+                const response = await fetch('https://YOUR_API_GATEWAY_URL/common-word', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+    
+                if (!response.ok) throw new Error('Failed to fetch most common word');
+    
+                const data = await response.json();
+                const commonWord = data.word || 'No words found';
+                const count = data.count || 0;
+    
+                // Update the page
+                document.getElementById('common-word-display').textContent = 
+                    `${commonWord} (${count} uses)`;
+            } catch (error) {
+                console.error('Error fetching most common word:', error);
+                document.getElementById('common-word-display').textContent = 
+                    'Error fetching data.';
+            }
+        }
+    
+        // Call the function when the page loads
+        fetchMostCommonWord();
+    </script>
+    
 </body>
 </html>
